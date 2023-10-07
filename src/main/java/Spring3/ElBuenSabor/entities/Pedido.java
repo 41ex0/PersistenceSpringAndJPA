@@ -2,9 +2,7 @@ package Spring3.ElBuenSabor.entities;
 
 import Spring3.ElBuenSabor.enumeration.FormaPago;
 import Spring3.ElBuenSabor.enumeration.TipoEnvio;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
@@ -29,4 +27,13 @@ public class Pedido extends BaseEntity {
     private TipoEnvio tipoEnvio;
     @Column(name = "forma_pago")
     private FormaPago formaPago;
+
+    //Relaciones
+    @ManyToOne()
+    @JoinColumn(name = "id_domicilio_entrega")
+    private Domicilio domicilioEntrega;
+
+    @ManyToOne()
+    @JoinColumn(name = "id_cliente")
+    private Cliente cliente;
 }

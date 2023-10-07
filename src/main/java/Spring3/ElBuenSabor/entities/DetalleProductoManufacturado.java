@@ -1,8 +1,6 @@
 package Spring3.ElBuenSabor.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -15,4 +13,14 @@ import lombok.*;
 public class DetalleProductoManufacturado extends BaseEntity{
     @Column(name = "cantidad")
     private int cantidad;
+
+    //Relations
+    @ManyToOne
+    @JoinColumn(name = "id_producto_insumo")
+    private Producto productoInsumo;
+
+    @ManyToOne
+    @JoinColumn(name = "id_producto_manufacturado")
+    private Producto productoManufacturado;
+
 }

@@ -17,4 +17,6 @@ public class EstadoPedido extends BaseEntity {
     private String codEstadoPedido;
     @Column(name = "nombre_estado_pedido")
     private String nombreEstadoPedido;
+
+    //Relations
 }

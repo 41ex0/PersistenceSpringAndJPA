@@ -1,8 +1,6 @@
 package Spring3.ElBuenSabor.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
@@ -21,4 +19,13 @@ public class PedidoEstado extends BaseEntity{
     private Date fechaHoraBajaPedidoEstado;
     @Column(name = "contador_pedido_estado")
     private Long contadorPedidoEstado;
+
+    //Relations
+    @ManyToOne
+    @JoinColumn(name = "id_pedido")
+    private Pedido pedido;
+
+    @ManyToOne
+    @JoinColumn(name = "id_estado_pedido")
+    private EstadoPedido estadoPedido;
 }

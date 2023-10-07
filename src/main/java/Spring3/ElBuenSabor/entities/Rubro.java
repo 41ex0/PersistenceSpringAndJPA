@@ -1,11 +1,10 @@
 package Spring3.ElBuenSabor.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "rubro")
@@ -19,4 +18,12 @@ public class Rubro extends BaseEntity {
     private String nombreRubro;
     @Column(name = "fecha_hora_baja_producto")
     private Date fechaHoraBajaProducto;
+
+    //Relations
+    @ManyToOne
+    @JoinColumn(name = "id_rubro_padre")
+    private Rubro rubroPadre;
+
+    @OneToMany(mappedBy = "rubroPadre")
+    private List<Rubro> subRubros;
 }

@@ -1,8 +1,6 @@
 package Spring3.ElBuenSabor.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -17,4 +15,13 @@ public class DetallePedido extends BaseEntity{
     private int cantidad;
     @Column(name = "subtotal")
     private double subtotal;
+
+    //Relations
+    @ManyToOne
+    @JoinColumn(name = "id_producto")
+    private Producto producto;
+
+    @ManyToOne
+    @JoinColumn(name = "id_pedido")
+    private Pedido pedido;
 }

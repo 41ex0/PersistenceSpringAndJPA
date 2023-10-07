@@ -19,4 +19,6 @@ public class UnidadMedida extends BaseEntity {
     private String nombreUnidadMedida;
     @Column(name = "fecha_hora_baja_unidad_medida")
     private Date fechaHoraBajaUnidadMedida;
+
+    //Relations
 }

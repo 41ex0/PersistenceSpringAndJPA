@@ -1,8 +1,6 @@
 package Spring3.ElBuenSabor.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -21,4 +19,13 @@ public class Domicilio extends BaseEntity{
     private int pisoDpto;
     @Column(name = "numero_dpto")
     private int nroDpto;
+
+    //Relations
+    @ManyToOne
+    @JoinColumn(name = "id_cliente")
+    private Cliente cliente;
+
+    @ManyToOne
+    @JoinColumn(name = "id_localidad")
+    private Localidad localidad;
 }

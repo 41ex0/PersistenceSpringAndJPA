@@ -1,8 +1,6 @@
 package Spring3.ElBuenSabor.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
@@ -33,4 +31,17 @@ public class Producto extends BaseEntity{
     private Date fechaHoraAltaProducto;
     @Column(name = "fecha_hora_baja_producto")
     private Date fechaHoraBajaProducto;
+
+    //Relations
+    @ManyToOne
+    @JoinColumn(name = "id_rubro")
+    private Rubro rubro;
+
+    @ManyToOne
+    @JoinColumn(name = "id_unidad_medida")
+    private UnidadMedida unidadMedida;
+
+    @ManyToOne
+    @JoinColumn(name = "id_tipo_producto")
+    private TipoProducto tipoProducto;
 }

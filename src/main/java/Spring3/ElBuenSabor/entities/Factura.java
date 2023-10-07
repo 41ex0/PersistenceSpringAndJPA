@@ -1,9 +1,7 @@
 package Spring3.ElBuenSabor.entities;
 
 import Spring3.ElBuenSabor.enumeration.FormaPago;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
@@ -26,4 +24,9 @@ public class Factura extends BaseEntity {
     private FormaPago formaPago;
     @Column(name = "totalPrecioFactura")
     private double totalPrecioFactura;
+
+    //Relations
+    @OneToOne
+    @JoinColumn(name = "id_pedido")
+    private Pedido pedido;
 }
