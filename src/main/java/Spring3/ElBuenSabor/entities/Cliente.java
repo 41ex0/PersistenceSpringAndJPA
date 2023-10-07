@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "cliente")
 @Getter
@@ -15,8 +17,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Cliente extends BaseEntity{
-    @Column(name = "")
-    private ;
-    @Column(name = "")
-    private ;
+    @Column(name = "nombre")
+    private String nombre;
+    @Column(name = "apellido")
+    private String apellido ;
+    @Column(name = "telefono")
+    private String telefono;
+    @Column(name = "mail")
+    private String mail;
+    @Column(name = "fecha_hora_baja_cliente")
+    private Date fechaHoraBajaCliente;
 }

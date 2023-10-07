@@ -1,4 +1,8 @@
 package Spring3.ElBuenSabor.entities;
 
-public class DetalleProductoManufacturado {
+import jakarta.persistence.Column;
+
+public class DetalleProductoManufacturado extends BaseEntity{
+    @Column(name = "cantidad")
+    private int cantidad;
 }
