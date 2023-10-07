@@ -1,4 +1,22 @@
 package Spring3.ElBuenSabor.entities;
 
-public class UnidadMedida {
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.*;
+
+import java.util.Date;
+
+@Entity
+@Table(name = "unidad_medida")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class UnidadMedida extends BaseEntity {
+    @Column(name = "nombre_unidad_medida")
+    private String nombreUnidadMedida;
+    @Column(name = "fecha_hora_baja_unidad_medida")
+    private Date fechaHoraBajaUnidadMedida;
 }

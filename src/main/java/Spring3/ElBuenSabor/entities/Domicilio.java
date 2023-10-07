@@ -1,7 +1,17 @@
 package Spring3.ElBuenSabor.entities;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.*;
 
+@Entity
+@Table(name = "domicilio")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Domicilio extends BaseEntity{
     @Column(name = "calle")
     private String calle;
