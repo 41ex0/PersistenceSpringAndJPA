@@ -3,6 +3,9 @@ package Spring3.ElBuenSabor.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "localidad")
 @Getter
@@ -15,6 +18,4 @@ public class Localidad extends BaseEntity{
     private String nombreLocalidad;
     @Column(name = "codigo_postal")
     private int codigoPostal;
-
-    //Relations
 }

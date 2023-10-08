@@ -14,9 +14,9 @@ import java.util.Date;
 @Builder
 public class Producto extends BaseEntity{
     @Column(name = "nombre_prodcto")
-    private String nombre;
+    private String nombreProducto;
     @Column(name = "tiempo_estimado_cocina")
-    private Date tiempoEstimadoCocina;
+    private int tiempoEstimadoCocina;
     @Column(name = "precio_venta")
     private double precioVenta;
     @Column(name = "precio_compra")

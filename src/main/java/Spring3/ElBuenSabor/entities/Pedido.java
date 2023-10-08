@@ -5,7 +5,9 @@ import Spring3.ElBuenSabor.enumeration.TipoEnvio;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "pedido")
@@ -15,8 +17,6 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder
 public class Pedido extends BaseEntity {
-    @Column(name = "url_imagen")
-    private String urlImagen;
     @Column(name = "fecha_hora_pedido")
     private Date fechaHoraPedido;
     @Column(name = "fecha_hora_estimada_finalizacion")
@@ -29,11 +29,25 @@ public class Pedido extends BaseEntity {
     private FormaPago formaPago;
 
     //Relaciones
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "id_domicilio_entrega")
     private Domicilio domicilioEntrega;
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;
+
+    @ManyToOne
+    @JoinColumn(name = "id_estado_pedido")
+    private EstadoPedido estadoPedido;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "pedido_id")
+    @Builder.Default
+    private List<DetallePedido> detallesPedido = new ArrayList<>();
+
+    public void agregarDetallePedido(DetallePedido detallePed) {
+        detallesPedido.add(detallePed);
+    }
+
 }

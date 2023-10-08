@@ -3,6 +3,7 @@ package Spring3.ElBuenSabor.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -24,6 +25,13 @@ public class Rubro extends BaseEntity {
     @JoinColumn(name = "id_rubro_padre")
     private Rubro rubroPadre;
 
-    @OneToMany(mappedBy = "rubroPadre")
-    private List<Rubro> subRubros;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "rubro_id")
+    @Builder.Default
+    private List<Producto> productos = new ArrayList<>();
+
+    public void agregarProducto(Producto prod){
+
+        productos.add(prod);
+    }
 }

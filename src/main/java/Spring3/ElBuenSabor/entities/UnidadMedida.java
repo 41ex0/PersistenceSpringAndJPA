@@ -1,11 +1,11 @@
 package Spring3.ElBuenSabor.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "unidad_medida")
@@ -19,6 +19,4 @@ public class UnidadMedida extends BaseEntity {
     private String nombreUnidadMedida;
     @Column(name = "fecha_hora_baja_unidad_medida")
     private Date fechaHoraBajaUnidadMedida;
-
-    //Relations
 }
